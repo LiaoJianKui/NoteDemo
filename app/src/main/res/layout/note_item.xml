@@ -42,7 +42,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:id="@+id/tv_date"
+        android:id="@+id/tv_createdate"
         android:layout_marginRight="3dp"
         android:layout_gravity="bottom"
         android:gravity="bottom"

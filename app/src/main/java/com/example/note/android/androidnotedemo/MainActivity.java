@@ -1,5 +1,6 @@
 package com.example.note.android.androidnotedemo;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -18,12 +19,11 @@ import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-private List<NoteBean> mNoteBeenList=new ArrayList<>();
+   private  List<NoteBean> mNoteBeenList;
     private SwipeMenuListView mSwipeMenuListView;
     private SwipeMenuCreator mSwipeMenuCreator;
     private NoteAdapter mNoteAdapter;
@@ -36,12 +36,14 @@ private List<NoteBean> mNoteBeenList=new ArrayList<>();
         Toolbar toolbar= (Toolbar) findViewById(R.id.toolBar);
         setSupportActionBar(toolbar);
         initViews();
-        initNote();//初始化记事本数据
+        initNote();
+        mNoteBeenList=NoteDBUtil.getNoteList(this);
         initNoteAdapter();
 
     }
 
     private void initNoteAdapter() {
+
        mNoteAdapter=new NoteAdapter(this,mNoteBeenList);
         mSwipeMenuListView.setAdapter(mNoteAdapter);
 
@@ -123,6 +125,8 @@ private List<NoteBean> mNoteBeenList=new ArrayList<>();
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "add", Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(MainActivity.this,AddActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -130,12 +134,14 @@ private List<NoteBean> mNoteBeenList=new ArrayList<>();
 
     private void initNote() {
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
-        for (int i=0;i<10;i++) {
-            NoteBean note1 = new NoteBean("abc","ddddddddddfaegsegergesrgaer",null,null,null,null,df.format(new Date(System.currentTimeMillis())));
-            mNoteBeenList.add(note1);
-            NoteBean note2 = new NoteBean("123","hellworldhellworldhellworldhellworld",null,null,null,null,df.format(new Date(System.currentTimeMillis())));
-            mNoteBeenList.add(note2);
-        }
+//        for (int i=0;i<10;i++) {
+//            NoteBean note1 = new NoteBean("abc","ddddddddddfaegsegergesrgaer",null,null,null,null,df.format(new Date(System.currentTimeMillis())),null,false);
+//            mNoteBeenList.add(note1);
+//            NoteBean note2 = new NoteBean("123","hellworldhellworldhellworldhellworld",null,null,null,null,df.format(new Date(System.currentTimeMillis())),null,false);
+//            mNoteBeenList.add(note2);
+//        }
+       // mNoteBeenList=NoteDBUtil.getNoteList(MainActivity.this);
+
     }
 
     @Override

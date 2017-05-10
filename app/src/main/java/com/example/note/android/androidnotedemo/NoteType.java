@@ -5,7 +5,11 @@ package com.example.note.android.androidnotedemo;
  */
 
 public class NoteType {
-    public static final  int LIFE = 0;
-    public static final int STUDY = 1;
-    public static final int HOBBY = 3;
+    public static  final String  TABLE_NAME = "note";
+    public static  final String  COL_ID = "id";
+    public static  final String  COL_TITLE = "title";
+    public static  final String  COL_CONTENT = "content";
+    public static  final String  COL_CREATE_TIME = "createTime";
+    public static  final String  COL_MODIFY_TIME = "modifyTime";
+    public static  final String  COL_IS_DEL = "isdel";
 }

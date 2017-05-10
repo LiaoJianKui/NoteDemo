@@ -46,7 +46,7 @@ public class NoteAdapter extends BaseAdapter{
             convertView = mLayoutInflater.inflate(R.layout.note_item, null);
             viewHolder.tvTitle= (TextView) convertView.findViewById(R.id.tv_title);
             viewHolder.tvContent= (TextView) convertView.findViewById(R.id.tv_content);
-            viewHolder.tvDate= (TextView) convertView.findViewById(R.id.tv_date);
+            viewHolder.tvCreateDate= (TextView) convertView.findViewById(R.id.tv_createdate);
             viewHolder.mImageView= (ImageView) convertView.findViewById(R.id.myImage);
             convertView.setTag(viewHolder);
         }else {
@@ -55,7 +55,7 @@ public class NoteAdapter extends BaseAdapter{
         NoteBean note=mNoteList.get(position);
         viewHolder.tvTitle.setText(note.getTitle());
         viewHolder.tvContent.setText(note.getContent());
-        viewHolder.tvDate.setText(note.getDate());
+        viewHolder.tvCreateDate.setText(note.getCreateDate());
         return convertView;
     }
 
@@ -63,6 +63,6 @@ public class NoteAdapter extends BaseAdapter{
         private ImageView mImageView;
         private TextView tvTitle;
         private TextView tvContent;
-        private TextView tvDate;
+        private TextView tvCreateDate;
     }
 }

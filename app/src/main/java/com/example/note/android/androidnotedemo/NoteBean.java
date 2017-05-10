@@ -5,21 +5,39 @@ package com.example.note.android.androidnotedemo;
  */
 
 public class NoteBean {
+    private int id;
     private String title;
     private String content;
     private String imgResouse;
     private String audioResouse;
     private String videoResouse;
     private String type;
-    private String date;
-    public NoteBean(String title, String content, String imgResouse, String audioResouse, String videoResouse, String type, String date) {
+    private String createDate;
+    private String modifyDate;
+    private boolean isDel;
+
+    public NoteBean() {
+    }
+
+    public NoteBean(String title, String content, String imgResouse, String audioResouse, String videoResouse, String type, String createDate, String modifyDate, boolean isDel) {
         this.title = title;
         this.content = content;
         this.imgResouse = imgResouse;
         this.audioResouse = audioResouse;
         this.videoResouse = videoResouse;
         this.type = type;
-        this.date = date;
+        this.createDate = createDate;
+        this.modifyDate=modifyDate;
+        this.isDel=isDel;
+
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -28,6 +46,30 @@ public class NoteBean {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getModifyDate() {
+        return modifyDate;
+    }
+
+    public void setModifyDate(String modifyDate) {
+        this.modifyDate = modifyDate;
+    }
+
+    public String getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
     }
 
     public String getType() {
@@ -61,28 +103,11 @@ public class NoteBean {
     public void setImgResouse(String imgResouse) {
         this.imgResouse = imgResouse;
     }
-
-    public NoteBean(String date, String content) {
-        this.date = date;
-        this.content = content;
+    public boolean isDel() {
+        return isDel;
     }
 
-    public String getDate() {
-        return date;
+    public void setDel(boolean del) {
+        isDel = del;
     }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-
-
 }
